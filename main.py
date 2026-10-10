@@ -48,6 +48,19 @@ HTML_TEMPLATE = """
             font-size: 18px;
             letter-spacing: 1px;
         }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .user-name {
+            font-size: 12px;
+            color: #e0e6ed;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
         .menu-icon {
             font-size: 24px;
             color: #f4d03f;
@@ -166,7 +179,10 @@ HTML_TEMPLATE = """
             <div class="logo-circle">Algérie<br>Poste</div>
             <span class="ccp-number">CCP 0029013970</span>
         </div>
-        <div class="menu-icon">&#9776;</div>
+        <div class="header-right">
+            <span class="user-name">FARES BALEH</span>
+            <div class="menu-icon">&#9776;</div>
+        </div>
     </div>
 
     <div class="sub-header">
