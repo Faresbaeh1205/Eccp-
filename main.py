@@ -192,7 +192,7 @@ HTML_TEMPLATE = """
     <div class="container">
         <div class="card">
             <div class="card-line"><strong>Compte :</strong> 29013970</div>
-            <div class="card-line"><strong>Date :</strong> 10/10/2026 à 16:47</div>
+            <div class="card-line"><strong>Date :</strong> <span id="current-date">--/--/----+--:--</span></div>
             <div class="solde-title">Votre solde :</div>
             <div class="solde-badge">310657,88 DA</div>
         </div>
@@ -200,7 +200,7 @@ HTML_TEMPLATE = """
         <div class="operations-title">Opérations récentes</div>
         <hr class="divider">
 
-        <div class="date-section">07/10/2026 :</div>
+        <div class="date-section" id="op-date">--/--/---- :</div>
 
         <div class="operation-card">
             <div class="op-header">
@@ -221,6 +221,26 @@ HTML_TEMPLATE = """
         </div>
     </div>
 
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            
+            const formattedDate = `${day}/${month}/${year}`;
+            const formattedDateTime = `${formattedDate} à ${hours}:${minutes}`;
+            
+            document.getElementById('current-date').textContent = formattedDateTime;
+            document.getElementById('op-date').textContent = formattedDate + ' :';
+        }
+
+        updateDateTime();
+    </script>
 </body>
 </html>
 """
